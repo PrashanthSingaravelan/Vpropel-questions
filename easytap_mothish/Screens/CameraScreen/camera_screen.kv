@@ -1,0 +1,49 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+<CameraScreen>
+	name: 'cam'
+	MDBoxLayout:
+        md_bg_color: get_color_from_hex("#EFE6DB")
+
+        FitImage:
+            source: "assets/images/top.png"
+            size_hint_y: .1
+            pos_hint:{"top": 1}
+
+    MDLabel:
+        text: "Easy Tap"
+        font_style: "H4"
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex("#FFF3E4")
+        pos_hint:{"center_y":.95}
+        x:"75dp"
+
+    MDBoxLayout:
+        size_hint: 1, .2
+        MDFloatingActionButton:
+            id: back_btn
+            text: "Back"
+            icon:"keyboard-return"
+            on_press:root.return_button()
+
+        MDFloatingActionButton:
+            id: camera_btn
+            text: "Camera Click"
+            icon:"camera"
+            width: dp(200)
+            #pos_hint:{"center_x":.6,"center_y":.2}
+            on_press:root.return_button()
+
+        MDFloatingActionButton:
+            id: delete_btn
+            text: "Delete"
+            width: dp(200)
+            #pos_hint:{"center_x":.7,"center_y":.3}
+            on_press:root.return_button()
+
+        MDFloatingActionButton:
+            id: tool_btn
+            text: "Tools"
+            width: dp(200)
+            #pos_hint:{"center_x":.8,"center_y":.4}
+            on_press:root.image_to_text_switch()
+
